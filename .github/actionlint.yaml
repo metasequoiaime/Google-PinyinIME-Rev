@@ -1,0 +1,8 @@
+# Depot-hosted GitHub Actions runner labels (https://depot.dev/docs/github-actions/runner-types); actionlint only knows GitHub's own labels by default.
+self-hosted-runner:
+  labels:
+    - depot-macos-15
+    - depot-ubuntu-24.04
+    - depot-ubuntu-24.04-4
+    - depot-ubuntu-24.04-8
+    - depot-windows-2025-8
