@@ -13,7 +13,7 @@ concurrency:
 jobs:
   native:
     name: Native / ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ fromJSON('{"ubuntu-24.04":"depot-ubuntu-24.04-4","macos-15":"depot-macos-15","windows-2025":"depot-windows-2025-8"}')[matrix.os] }}
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -35,7 +35,7 @@ jobs:
         run: ctest --test-dir build -C Release --output-on-failure --no-tests=error --timeout 30
   sanitizers:
     name: Linux ASan and UBSan
-    runs-on: ubuntu-24.04
+    runs-on: depot-ubuntu-24.04-8
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
